@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SeoulAirport.TimeTable_Arrivals>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Airlines_Arrivals.Airline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cities_Arrivals.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight_Arrivals.FlightNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status_Arrivals.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terminals_Arrivals.Terminal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Airlines_Arrivals.Airline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cities_Arrivals.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight_Arrivals.FlightNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status_Arrivals.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terminals_Arrivals.Terminal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
